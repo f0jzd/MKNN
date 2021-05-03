@@ -43,7 +43,7 @@ public class Interaction_Script2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        brokenHearts.SetActive(false);
+        brokenHearts.SetActive(false);  // Disable particle effect
         heartsplosion.SetActive(false);
 
         
