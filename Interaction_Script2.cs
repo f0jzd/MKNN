@@ -28,7 +28,7 @@ public class Interaction_Script2 : MonoBehaviour
 
     public LayerMask hitLayer;
     public SpriteRenderer emotion;
-    private float randomNumber;
+    private float randomNumber = 30;
     private float aValue = 1;
     private float t = 2;
     float alpha;
@@ -44,11 +44,9 @@ public class Interaction_Script2 : MonoBehaviour
     void Start()
     {
         brokenHearts.SetActive(false);  // Disable particle effect
-        heartsplosion.SetActive(false);
-
+        heartsplosion.SetActive(false); // Disable particle effect
         
-        randomNumber = Random.Range(30f,30f);
-        emotion.color = new Color(1, 1, 1, 1);
+        emotion.color = new Color(1, 1, 1, 1);// Sets a new color
         alpha = emotion.color.a;
         hugShower.SetActive(true);
         Debug.Log(emotion.color.a);
@@ -63,8 +61,8 @@ public class Interaction_Script2 : MonoBehaviour
         
 
         //hugging = InteractionScript.hugging;
-
-        if (hugCheck == true)
+        //Check if the player is clicking on an NPC, if it hits the NPC a coroutine starts which changes the NPCs face over the timer the player holds down the mouse
+        if (hugCheck == true) 
         {
             
             Vector3 mouse = Input.mousePosition;
@@ -93,7 +91,8 @@ public class Interaction_Script2 : MonoBehaviour
         }
 
 
-            if (hugging == true)
+            // Renders different colliders
+            if (hugging == true) 
         {
             Debug.Log("huggin in interaction script2 true");
             hugShower.SetActive(true);
@@ -103,7 +102,7 @@ public class Interaction_Script2 : MonoBehaviour
             //Debug.Log(emotion.color.a);
         }
 
-
+        //Changes the sprites 
         if (hugging == false)
         {
             hugShower.SetActive(false);
@@ -134,7 +133,7 @@ public class Interaction_Script2 : MonoBehaviour
         jerryFace.sprite = emotion.sprite;
 
 
-    }
+    }//Plays audio on collision
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Player")
@@ -153,7 +152,7 @@ public class Interaction_Script2 : MonoBehaviour
 
 
 
-    IEnumerator FadeTo()
+    IEnumerator FadeTo() // Fading to script, there are probably easier ways but since I was new I could not find any easier nor had the time
     {
        
         Debug.Log("starting fadeto");
